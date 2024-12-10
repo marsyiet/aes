@@ -165,7 +165,7 @@ export default function Home() {
                 </Highlight>
               </motion.h1>
             </HeroHighlight>
-            <form onSubmit={onSubmit} className="w-full space-y-6">
+            <form onSubmit={onSubmit} className="w-full px-10 lg:px-2 space-y-6">
               <Input placeholder="Votre message..." type="text" onChange={(e) => setMessage(e.target.value)} />
               <Input placeholder="Votre clé de chiffrement 🗝️" onChange={(e) => setKey(e.target.value)} />
               <div className="flex items-center justify-center">
