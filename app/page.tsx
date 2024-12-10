@@ -104,7 +104,7 @@ export default function Home() {
   return (
     <main className="bg-foreground py-10 min-h-screen">
 
-      <div className="flex flex-col justify-center items-center px-10 gap-10 max-w-screen-lg mx-auto">
+      <div className="flex flex-col justify-center items-center gap-10 w-full lg:max-w-screen-lg mx-auto">
         {encryptedMessage ?
           <motion.div className="flex flex-col justify-center items-center px-10 gap-10 max-w-screen-lg mx-auto w-full"
           initial={{ opacity: 0, y: 50 }}   // État initial (transparent et décalé)
@@ -134,7 +134,7 @@ export default function Home() {
                 </Highlight>
               </motion.h1>
             </HeroHighlight>
-            <Textarea defaultValue={encryptedMessage} id="result" />
+            <Textarea defaultValue={encryptedMessage} id="result" disabled />
             <div className="flex gap-5">
               <ShadButton onClick={() => setEncryptedMessage("")}>Réessayer <RefreshCcw /></ShadButton>
               <ShadButton variant={'outline'} onClick={()=>handleCopy()}>Copier <Copy /></ShadButton>
@@ -180,7 +180,7 @@ export default function Home() {
             </form>
           </>
         }
-        <div className="w-full px-2 lg:w-4/5">
+        <div className="w-full px-10 lg:w-4/5">
           <p className="text-center text-sm text-muted-foreground">
             Cette page est une implémentation des connaissances acquises dans le cadre de recherches sur le fonctionnement de l'algorithme de chiffrement symétrique AES et des fonctions homomorphiques.
           </p>
