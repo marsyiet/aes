@@ -10,7 +10,7 @@ import { Button as ShadButton } from "@/components/ui/button"
 
 import { toast } from "@/hooks/use-toast"
 import { Textarea } from "@/components/ui/textarea";
-import { Copy, RefreshCcw } from "lucide-react";
+import { Check, CircleX, Copy, Cross, RefreshCcw } from "lucide-react";
 
 
 export default function Home() {
@@ -48,32 +48,54 @@ export default function Home() {
     })
   }
 
+  const handleCopy = async () => {
+    try {
+      // Utiliser la Clipboard API pour copier le texte
+      await navigator.clipboard.writeText(encryptedMessage);
+      
+      // Optionnel : Retour visuel pour l'utilisateur
+      toast({
+        className: "text-white bg-white/5 border border-muted-foreground/50",
+        description: (
+          <div className="flex gap-2 items-center">Copié <Check className="w-4 h-4"/></div>
+        ),
+      })
+    } catch (err) {
+      toast({
+        className: "text-white bg-white/5 border border-muted-foreground/50",
+        description: (
+          <div  className="flex gap-2 items-center">Erreur <CircleX className="w-4 h-4"/></div>
+        ),
+      })
+    }
+  };
+
   const people = [
     {
       id: 1,
       name: "NGUENING SIMO Marlyse",
-      designation: "Member",
+      designation: "Cheffe de groupe",
       image:
         "/marius.png",
     },
     {
       id: 2,
       name: "ETOUNDI AYISSI Marius",
-      designation: "Member",
+      designation: "Membre",
       image:
         "/marius.png",
     },
     {
       id: 3,
       name: "EDJE'E ONANA Juvenal",
-      designation: "Member",
+      designation: "Membre",
       image:
         "/marius.png",
     },
     {
       id: 4,
       name: "NJEGWES Lagrace",
-      designation: "Member",
+      designation: "Membre",
       image:
         "/marius.png",
     },
@@ -84,7 +106,11 @@ export default function Home() {
 
       <div className="flex flex-col justify-center items-center px-10 gap-10 max-w-screen-lg mx-auto">
         {encryptedMessage ?
-          <>
+          <motion.div className="flex flex-col justify-center items-center px-10 gap-10 max-w-screen-lg mx-auto w-full"
+          initial={{ opacity: 0, y: 50 }}   // État initial (transparent et décalé)
+          animate={{ opacity: 1, y: 0 }}    // Révéler l'élément (opacité 1 et position finale)
+          transition={{ duration: 1 }}      // Durée de l'animation
+          >
             <HeroHighlight>
               <motion.h1
                 initial={{
@@ -108,12 +134,12 @@ export default function Home() {
                 </Highlight>
               </motion.h1>
             </HeroHighlight>
-            <Textarea defaultValue={encryptedMessage} />
+            <Textarea defaultValue={encryptedMessage} id="result" />
             <div className="flex gap-5">
               <ShadButton onClick={() => setEncryptedMessage("")}>Réessayer <RefreshCcw /></ShadButton>
-              <ShadButton variant={'outline'}>Copier <Copy /></ShadButton>
+              <ShadButton variant={'outline'} onClick={()=>handleCopy()}>Copier <Copy /></ShadButton>
             </div>
-          </>
+          </motion.div>
           :
           <>
             <HeroHighlight>
