@@ -76,7 +76,7 @@ export default function Home() {
       name: "NGUENING SIMO Marlyse",
       designation: "Cheffe de groupe",
       image:
-        "/marius.png",
+        "/who.jpg",
     },
     {
       id: 2,
@@ -90,14 +90,14 @@ export default function Home() {
       name: "EDJE'E ONANA Juvenal",
       designation: "Membre",
       image:
-        "/marius.png",
+        "/who.jpg",
     },
     {
       id: 4,
       name: "NJEGWES Lagrace",
       designation: "Membre",
       image:
-        "/marius.png",
+        "/who.jpg",
     },
   ];
 
