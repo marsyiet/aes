@@ -19,9 +19,7 @@ export default function Home() {
   const [message, setMessage] = useState<string>('');
   const [encryptedMessage, setEncryptedMessage] = useState<string>('');
 
-
   // Fonction pour gérer le chiffrement
-
 
   function onSubmit(e: any) {
     e.preventDefault();
