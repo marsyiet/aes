@@ -72,32 +72,11 @@ export default function Home() {
 
   const people = [
     {
-      id: 1,
-      name: "NGUENING SIMO Marlyse",
-      designation: "Cheffe de groupe",
-      image:
-        "/who.jpg",
-    },
-    {
       id: 2,
-      name: "ETOUNDI AYISSI Marius",
-      designation: "Membre",
+      name: "marsyiet",
+      designation: "Dev",
       image:
         "/marius.png",
-    },
-    {
-      id: 3,
-      name: "EDJE'E ONANA Juvenal",
-      designation: "Membre",
-      image:
-        "/who.jpg",
-    },
-    {
-      id: 4,
-      name: "NJEGWES Lagrace",
-      designation: "Membre",
-      image:
-        "/who.jpg",
     },
   ];
 
